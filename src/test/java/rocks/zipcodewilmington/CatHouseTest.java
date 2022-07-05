@@ -59,7 +59,6 @@ public class CatHouseTest {
         Cat testCat2 = new Cat("Sprinkle", null, 12);
         CatHouse.add(testCat);
         CatHouse.add(testCat2);
-        int catID = testCat.getId();
         //When
         Cat actualCat = CatHouse.getCatById(12);
         //Then
