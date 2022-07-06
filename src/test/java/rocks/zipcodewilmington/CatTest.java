@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import rocks.zipcodewilmington.animals.Cat;
 
+import java.net.Authenticator;
 import java.util.Date;
 
 /**
@@ -11,13 +12,6 @@ import java.util.Date;
  */
 public class CatTest {
     // TODO - Create tests for `void setName(String name)`
-    // TODO - Create tests for `speak`
-    // TODO - Create tests for `setBirthDate(Date birthDate)`
-    // TODO - Create tests for `void eat(Food food)`
-    // TODO - Create tests for `Integer getId()`
-    // TODO - Create test to check Animal inheritance; google search `java instanceof keyword`
-    // TODO - Create test to check Mammal inheritance; google search `java instanceof keyword`
-
 
     @Test
     public void constructorTest() {
@@ -39,5 +33,54 @@ public class CatTest {
         Assert.assertEquals(givenBirthDate, retrievedBirthDate);
         Assert.assertEquals(givenId, retrievedId);
     }
+
+    // TODO - Create tests for `speak`
+    @Test
+    public void testCatSpeak() {
+        //Given
+        String expected = "meow!";
+
+        //When (cat instanced and speaks)
+        Date date = new Date();
+        Cat cat = new Cat("Cat", date, 01);
+        String actual = cat.speak();
+        //Then
+        Assert.assertEquals(expected, actual);
+
+    }
+    // TODO - Create tests for `setBirthDate(Date birthDate)`
+
+    @Test
+    public void testCatSetBirthDate() {
+        //Given
+        Date expected = new Date();
+
+        //When (cat instanced and speaks)
+        Date date = new Date();
+        Cat cat = new Cat("Cat", date, 01);
+        cat.setBirthDate(date);
+        Date actual = cat.getBirthDate();
+        //Then
+        Assert.assertEquals(expected, actual);
+    }
+    // TODO - Create tests for `void eat(Food food)`
+    @Test
+    public void testCatEatSomeFood() {
+        //Given
+        Food food = new Food();
+        Date date = new Date();
+        Cat cat = new Cat("Cat", date, 01);
+        int mealsEatenBeforeFeed = cat.getNumberOfMealsEaten();
+        int expected = mealsEatenBeforeFeed + 1;
+
+        //When (cat is fed))
+        cat.eat(food);
+        int actual = cat.getNumberOfMealsEaten();
+        //Then
+        Assert.assertEquals(expected, actual);
+    }
+    // TODO - Create tests for `Integer getId()`
+    // TODO - Create test to check Animal inheritance; google search `java instanceof keyword`
+    // TODO - Create test to check Mammal inheritance; google search `java instanceof keyword`
 
 }
